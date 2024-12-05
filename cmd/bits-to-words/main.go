@@ -20,6 +20,7 @@ func main() {
 		if line == "" {
 			continue
 		}
+		line = strings.ReplaceAll(line, " ", "")
 		if len(line) != 22 {
 			panic(fmt.Sprintf("bad line: %v", line))
 		}
