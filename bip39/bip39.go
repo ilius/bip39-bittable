@@ -22,7 +22,7 @@ func init() {
 }
 
 func loadWords(fpath string) ([]string, map[string]int16) {
-	textB, err := assets.FS.ReadFile("english.txt")
+	textB, err := assets.FS.ReadFile(fpath)
 	if err != nil {
 		panic(err)
 	}
