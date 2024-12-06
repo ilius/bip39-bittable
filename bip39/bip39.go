@@ -3,6 +3,8 @@ package bip39
 import (
 	"bytes"
 	"math/big"
+
+	"github.com/ilius/bip39-bittable/bip39/assets"
 )
 
 var (
@@ -20,7 +22,7 @@ func init() {
 }
 
 func loadWords(fpath string) ([]string, map[string]int16) {
-	textB, err := Asset(fpath)
+	textB, err := assets.FS.ReadFile("english.txt")
 	if err != nil {
 		panic(err)
 	}
