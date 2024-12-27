@@ -22,3 +22,15 @@ func WordFromBits(bitstr string) string {
 func WordPairFromBits(bitstr string) (string, string) {
 	return WordFromBits(bitstr[:11]), WordFromBits(bitstr[11:])
 }
+
+func Uint32FromBits(bitstr string) uint32 {
+	a, err := strconv.ParseUint(bitstr[:11], 2, 32)
+	if err != nil {
+		panic(err)
+	}
+	b, err := strconv.ParseUint(bitstr[11:], 2, 32)
+	if err != nil {
+		panic(err)
+	}
+	return uint32(a)<<11 | uint32(b)
+}
